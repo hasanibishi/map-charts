@@ -8,3 +8,31 @@ body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.content {
+    padding: 20px;
+    text-align: center;
+    background: #fff;
+
+    img {
+        width: 100px;
+        height: 70px;
+    }
+
+    hr {
+        color: #888;
+    }
+
+    .name {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .population {
+        margin-top: 10px;
+
+        span {
+            font-weight: bold;
+        }
+    }
+}

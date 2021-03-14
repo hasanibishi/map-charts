@@ -18,12 +18,6 @@ export class MapComponent implements OnInit {
     }
 
     generateMap() {
-        let dataMap = this.mapService.getMapData().map(x => ({
-            value: x.value,
-            name: x.name,
-            path: x.path,
-            color: x.path
-        }));
 
         this.chartOptions = {
             chart: {
@@ -35,10 +29,10 @@ export class MapComponent implements OnInit {
             credits: {
                 enabled: false
             },
-            legend: false,
             mapNavigation: {
                 enabled: false
             },
+            legend: { enabled: false },
             xAxis: {
                 lineWidth: 0,
                 tickWidth: 0,
@@ -46,7 +40,7 @@ export class MapComponent implements OnInit {
                 labels: {
                     enabled: false
                 },
-                title: false
+                title: { text: '' }
             },
             yAxis: {
                 lineWidth: 0,
@@ -55,12 +49,42 @@ export class MapComponent implements OnInit {
                 labels: {
                     enabled: false
                 },
-                title: false
+                title: { text: '' }
+            },
+            plotOptions: {
+                series: {
+                    events: {
+                        mouseOver: function () {
+                            this.chart.update({
+                                tooltip: {
+                                    hideDelay: 0
+                                }
+                            });
+                        }
+                    }
+                }
+            },
+            tooltip: {
+                outside: true,
+                animation: false,
+                useHTML: true,
+                backgroundColor: '#fff',
+                borderRadius: 3,
+                borderColor: '#888',
+                formatter: function () {
+                    var name = this.point.name;
+                    var population = this.point.population;
+                    var flag = this.point.flag;
+
+                    var html = '<div class="content"><img src="' + flag + '"/><hr><div><span class="name">' + name + '</span> <div class="population" style=""><span> Population:</span><span> ' + population + ' </span></div></div></div>';
+
+                    return html;
+                }
             },
             series: [{
                 type: 'map',
                 cursor: 'pointer',
-                data: dataMap,
+                data: this.mapService.getMapData(),
                 states: {
                     hover: {
                         borderColor: 'black'
