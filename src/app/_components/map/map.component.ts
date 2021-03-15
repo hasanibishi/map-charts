@@ -29,6 +29,10 @@ export class MapComponent implements OnInit {
             credits: {
                 enabled: false
             },
+            colorAxis: {
+                minColor: '#fff',
+                maxColor: '#ff0000',
+            },
             mapNavigation: {
                 enabled: false
             },
@@ -73,10 +77,10 @@ export class MapComponent implements OnInit {
                 borderColor: '#888',
                 formatter: function () {
                     var name = this.point.name;
-                    var population = this.point.population;
+                    var population = this.point.value;
                     var flag = this.point.flag;
 
-                    var html = '<div class="content"><img src="' + flag + '"/><hr><div><span class="name">' + name + '</span> <div class="population" style=""><span> Population:</span><span> ' + population + ' </span></div></div></div>';
+                    var html = '<div class="content"><img src="' + flag + '"/><hr><div><span class="name">' + name + '</span> <div class="population" style=""><span> Population:</span><span> ' + population.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") + ' </span></div></div></div>';
 
                     return html;
                 }

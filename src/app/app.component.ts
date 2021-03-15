@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatTabChangeEvent } from '@angular/material/tabs';
-import { Router } from '@angular/router';
+import { NavigationStart, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +13,15 @@ export class AppComponent {
 
   constructor(
     private router: Router
-  ) { }
+  ) {
+    this.router.events
+      .subscribe((nav: NavigationStart) => {
+        if (nav.url === '/map')
+          this.selectedTab = '0';
+        else if (nav.url === '/charts')
+          this.selectedTab = '1';
+      })
+  }
 
   goTo(event: MatTabChangeEvent) {
     const index = event.index;
