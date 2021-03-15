@@ -1,0 +1,16 @@
+.map {
+    display: grid;
+    grid-template-columns: 180px auto 180px;
+    justify-items: center;
+    max-width: 1366px;
+    margin: 0 auto;
+    height: 100%;
+
+    h1 {
+        letter-spacing: 5px;
+    }
+
+    img {
+        width: 150px;
+    }
+}
