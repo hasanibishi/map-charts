@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatTabChangeEvent } from '@angular/material/tabs';
-import { NavigationStart, Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +15,7 @@ export class AppComponent {
     private router: Router
   ) {
     this.router.events
-      .subscribe((nav: NavigationStart) => {
+      .subscribe((nav: NavigationEnd) => {
         if (nav.url === '/map')
           this.selectedTab = '0';
         else if (nav.url === '/charts')

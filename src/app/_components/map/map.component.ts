@@ -21,7 +21,7 @@ export class MapComponent implements OnInit {
 
         this.chartOptions = {
             chart: {
-                backgroundColor: "#fff"
+                backgroundColor: '#fff'
             },
             title: {
                 text: ''
@@ -76,14 +76,14 @@ export class MapComponent implements OnInit {
                 borderRadius: 3,
                 borderColor: '#888',
                 formatter: function () {
-                    var name = this.point.name;
-                    var population = this.point.value;
-                    var flag = this.point.flag;
+                    const name = this.point.name;
+                    const population = this.point.value;
+                    const flag = this.point.flag;
 
-                    var html = '<div class="content"><img src="'
+                    const html = '<div class="content"><img src="'
                         + flag + '"/><hr><div><span class="name">'
-                        + name + '</span> <div class="population" style=""><span> Population:</span><span>'
-                        + population.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
+                        + name + '</span> <div class="population"><span> Population: </span><span>'
+                        + population.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')
                         + '</span></div></div></div>';
 
                     return html;
@@ -92,7 +92,7 @@ export class MapComponent implements OnInit {
             series: [{
                 type: 'map',
                 cursor: 'pointer',
-                data: this.mapService.getMapData(),
+                data: this.mapService.getEuropeData(),
                 states: {
                     hover: {
                         borderColor: 'black'

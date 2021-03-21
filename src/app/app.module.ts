@@ -8,6 +8,7 @@ import { ChartsComponent } from './_components/charts/charts.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from "@angular/material/tabs";
 import { HighchartsChartModule } from "highcharts-angular";
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { HighchartsChartModule } from "highcharts-angular";
     AppRoutingModule,
     BrowserAnimationsModule,
     MatTabsModule,
+    MatSelectModule,
     HighchartsChartModule
   ],
   providers: [],
