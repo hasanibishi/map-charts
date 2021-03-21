@@ -2,26 +2,21 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.2.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# Introduction
 
-## Code scaffolding
+This is a simple demo application using Highcharts library such as: map and some types of charts.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+![Screenshot_1](https://user-images.githubusercontent.com/32700638/111909826-155ee980-8a5f-11eb-9834-4f1655e20bc5.png)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+![Screenshot_2](https://user-images.githubusercontent.com/32700638/111909852-358ea880-8a5f-11eb-9a44-330d052049db.png)
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+![Screenshot_3](https://user-images.githubusercontent.com/32700638/111909855-39222f80-8a5f-11eb-9df2-99d67aa705c7.png)
