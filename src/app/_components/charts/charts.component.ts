@@ -10,6 +10,12 @@ import * as Highcharts from 'highcharts/highmaps';
 export class ChartsComponent implements OnInit {
   Highcharts: typeof Highcharts = Highcharts;
   chartOptions: any;
+  chartTypes = [
+    { value: 'column', name: 'Column' },
+    { value: 'bar', name: 'Bar' },
+    { value: 'pie', name: 'Pie' },
+    { value: 'line', name: 'Line' }
+  ]
 
   constructor(private mapService: MapService) { }
 
