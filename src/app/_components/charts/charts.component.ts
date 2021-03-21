@@ -19,17 +19,17 @@ export class ChartsComponent implements OnInit {
 
   generateChart(type: string) {
 
-    const data: any[] = this.mapService.getEuropeData()
+    const data = this.mapService.getEuropeData()
       .map(x => ({
         name: x.name,
         y: x.value,
         flag: x.flag,
-        color: this.genereteColors()
-      })).filter((value, index, array) =>
+        color: this.generateColors()
+      }))
+      .filter((value, index, array) =>
         index === array.findIndex((t) => (
           t.name === value.name
         )))
-
 
     this.chartOptions = {
       chart: {
@@ -90,7 +90,7 @@ export class ChartsComponent implements OnInit {
     }
   }
 
-  genereteColors() {
+  generateColors() {
     const letters = '0123456789ABCDEF';
     let color = '#';
 

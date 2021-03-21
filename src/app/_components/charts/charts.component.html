@@ -1,14 +1,19 @@
 <div class="chart">
     <div>
-        <mat-form-field>
-            <mat-label>Select Type</mat-label>
-            <mat-select (selectionChange)="generateChart($event?.value)">
-                <mat-option [value]="'column'">Colum</mat-option>
-                <mat-option [value]="'bar'">Bar</mat-option>
-                <mat-option [value]="'pie'">Pie</mat-option>
-                <mat-option [value]="'line'">Line</mat-option>
-            </mat-select>
-        </mat-form-field>
+        <div class="title">
+            <h1>Europe Population</h1>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Select Chart Type</mat-label>
+                <mat-select (selectionChange)="generateChart($event?.value)">
+                    <mat-option [value]="'column'">Colum</mat-option>
+                    <mat-option [value]="'bar'">Bar</mat-option>
+                    <mat-option [value]="'pie'">Pie</mat-option>
+                    <mat-option [value]="'line'">Line</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
     </div>
     <div>
         <highcharts-chart [Highcharts]="Highcharts"
