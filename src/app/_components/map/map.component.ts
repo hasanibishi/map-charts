@@ -92,7 +92,7 @@ export class MapComponent implements OnInit {
             series: [{
                 type: 'map',
                 cursor: 'pointer',
-                data: this.mapService.getEuropeData(),
+                data: this.mapService.getEuropeData().map(x => ({ value: x.population, ...x })),
                 states: {
                     hover: {
                         borderColor: 'black'

@@ -8,7 +8,7 @@ export class MapService {
 
   constructor() { }
 
-  getEuropeData(): any {
+  getEuropeData() {
     return europeMap.data;
   }
 }

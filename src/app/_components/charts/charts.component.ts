@@ -2,33 +2,44 @@ import { Component, OnInit } from '@angular/core';
 import { MapService } from 'src/app/_services/map.service';
 import * as Highcharts from 'highcharts/highmaps';
 
+interface IChartType {
+  key: string;
+  name: string;
+}
+
 @Component({
   selector: 'app-charts',
   templateUrl: './charts.component.html',
   styleUrls: ['./charts.component.scss']
 })
 export class ChartsComponent implements OnInit {
+
   Highcharts: typeof Highcharts = Highcharts;
   chartOptions: any;
-  chartTypes = [
-    { value: 'column', name: 'Column' },
-    { value: 'bar', name: 'Bar' },
-    { value: 'pie', name: 'Pie' },
-    { value: 'line', name: 'Line' }
+  selectedChart: IChartType;
+
+  chartTypes: IChartType[] = [
+    { key: 'column', name: 'Column' },
+    { key: 'bar', name: 'Bar' },
+    { key: 'pie', name: 'Pie' },
+    { key: 'line', name: 'Line' }
   ]
 
   constructor(private mapService: MapService) { }
 
   ngOnInit() {
-    this.generateChart('column');
+    const [initChartType] = this.chartTypes;
+    this.generateChart(initChartType);
   }
 
-  generateChart(type: string) {
+  generateChart(chart: IChartType) {
+
+    this.selectedChart = chart;
 
     const data = this.mapService.getEuropeData()
       .map(x => ({
         name: x.name,
-        y: x.value,
+        y: x.population,
         flag: x.flag,
         color: this.generateColors()
       }))
@@ -39,7 +50,7 @@ export class ChartsComponent implements OnInit {
 
     this.chartOptions = {
       chart: {
-        type: type,
+        type: chart.key,
         backgroundColor: "#fff"
       },
       credits: {

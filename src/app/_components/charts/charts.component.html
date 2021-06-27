@@ -6,9 +6,10 @@
         <div>
             <mat-form-field>
                 <mat-label>Select Chart Type</mat-label>
-                <mat-select (selectionChange)="generateChart($event?.value)">
+                <mat-select [(value)]="selectedChart"
+                            (valueChange)="generateChart($event)">
                     <mat-option *ngFor="let type of chartTypes"
-                                [value]="type.value">
+                                [value]="type">
                         {{type.name}}
                     </mat-option>
                 </mat-select>
